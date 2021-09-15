@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CommentController implements IController {
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext, ITemplateEngine templateEngine) throws Exception {
+        request.setCharacterEncoding("UTF-8");
         if (request.getMethod().equalsIgnoreCase("post") && request.getParameter("action") != null && request.getParameter("action").equals("addComment")) {
             Comment comment = new Comment();
             comment.setName(request.getParameter("name"));
